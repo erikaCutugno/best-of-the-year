@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:text="${category}"></title>
+  </head>
+  <body>
+    <header>
+      <h1 th:text="${category}"></h1>
+    </header>
+    <section>
+      <div th:if="${title != null}">
+        <h2 th:text="${title}"></h2>
+      </div>
+      <div th:unless="${title != null}">
+        <h2>No Title Available</h2>
+      </div>
+    </section>
+  </body>
+</html>
