@@ -43,6 +43,20 @@ public class IntroController {
         model.addAttribute("title", title);
         return "stringList";
     }
+    @GetMapping("/movieslist")
+    public String moviesList(Model model) {
+        model.addAttribute("category", "Movies");
+        model.addAttribute("title", getBestMovies());
+        return "list";
+    }
+    @GetMapping("/songslist")
+    public String songsList(Model model) {
+        model.addAttribute("category", "Songs");
+        model.addAttribute("title", getBestSongs());
+        return "list";
+    }
+    
+    
     @GetMapping("/movies/{id}")
     public String movieById(Model model, @PathVariable("id") Integer movieId) {
         Movie movieFound = null;

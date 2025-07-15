@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:text="${category}"></title>
+  </head>
+  <body>
+    <header>
+      <h1 th:text="${category}"></h1>
+    </header>
+    <section>
+      <ul>
+        <li th:each="item : ${title}" th:text="${item.title}"></li>
+      </ul>
+    </section>
+  </body>
+</html>
