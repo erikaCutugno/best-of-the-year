@@ -21,7 +21,7 @@ public class IntroController {
         return "index"; 
       
     }
-    @GetMapping("/movies")
+    @GetMapping("/stringmovies")
     public String movies(Model model) {
        String title = "";
        for (Movie movie : getBestMovies()) {
@@ -32,7 +32,7 @@ public class IntroController {
        model.addAttribute("title", title);
        return "stringList";
     }
-@GetMapping("/songs")
+@GetMapping("/stringsongs")
     public String songs(Model model) {
         String title = "";
         for (Song song : getBestSongs()) {
@@ -43,13 +43,13 @@ public class IntroController {
         model.addAttribute("title", title);
         return "stringList";
     }
-    @GetMapping("/movieslist")
+    @GetMapping("/movies")
     public String moviesList(Model model) {
         model.addAttribute("category", "Movies");
         model.addAttribute("title", getBestMovies());
         return "list";
     }
-    @GetMapping("/songslist")
+    @GetMapping("/songs")
     public String songsList(Model model) {
         model.addAttribute("category", "Songs");
         model.addAttribute("title", getBestSongs());

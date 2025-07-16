@@ -1,14 +1,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title th:text="${category}"></title>
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"
+    />
   </head>
   <body>
-    <header>
-      <h1 th:text="${category}"></h1>
+    <header class="container">
+      <button class="btn btn-light" type="button">
+        <a th:href="@{/}" class="text-decoration-none text-dark">Home </a>
+      </button>
+      <h1 class="text-center p-3" th:text="${category}"></h1>
     </header>
-    <section>
+    <section class="container">
       <div th:if="${title != null}">
-        <h2 th:text="${title}"></h2>
+        <h2 class="text-center" th:text="${title}"></h2>
       </div>
       <div th:unless="${title != null}">
         <h2>No Title Available</h2>

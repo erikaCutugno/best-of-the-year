@@ -1,14 +1,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title th:text="${category}"></title>
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"
+    />
   </head>
   <body>
     <header>
-      <h1 th:text="${category}"></h1>
+      <div>
+        <h1 class="text-center p-3" th:text="${category}"></h1>
+      </div>
     </header>
     <section>
-      <ul>
-        <li th:each="item : ${title}" th:text="${item.title}"></li>
+      <ul class="list-group container text-center" th:if="${title.size() > 0}">
+        <li th:each="item : ${title}" class="list-group-item">
+          <a
+            th:if="${category == 'Movies'}"
+            th:href="@{/movies/{id}(id=${item.id})}"
+            class="text-decoration-none text-dark"
+            th:text="${item.title}"
+          ></a>
+          <a
+            th:if="${category == 'Songs'}"
+            th:href="@{/songs/{id}(id=${item.id})}"
+            class="text-decoration-none text-dark"
+            th:text="${item.title}"
+          ></a>
+        </li>
       </ul>
     </section>
   </body>
